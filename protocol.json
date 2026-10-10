@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "service_uuid": "A0310000-5B5A-4B4D-9A6E-5033314E0001",
+  "event_characteristic_uuid": "A0310001-5B5A-4B4D-9A6E-5033314E0001",
+  "control_characteristic_uuid": "A0310002-5B5A-4B4D-9A6E-5033314E0001",
+  "control_commands": {"0": "stop", "1": "start_new_session"},
+  "event_packet_bytes": 20,
+  "event_fields": [
+    {"offset": 0, "size": 1, "name": "version"},
+    {"offset": 1, "size": 1, "name": "physical_position_0_to_30"},
+    {"offset": 2, "size": 1, "name": "pressed_0_or_1"},
+    {"offset": 3, "size": 1, "name": "reserved_zero"},
+    {"offset": 4, "size": 4, "name": "sequence_le32"},
+    {"offset": 8, "size": 4, "name": "event_uptime_ms_le32"},
+    {"offset": 12, "size": 4, "name": "boot_id_le32"},
+    {"offset": 16, "size": 4, "name": "capture_session_le32"}
+  ],
+  "status_read_bytes": 32,
+  "status_fields": [
+    {"offset": 0, "size": 1, "name": "version"},
+    {"offset": 1, "size": 1, "name": "enabled"},
+    {"offset": 2, "size": 2, "name": "reserved_zero"},
+    {"offset": 4, "size": 4, "name": "boot_id_le32"},
+    {"offset": 8, "size": 4, "name": "capture_session_le32"},
+    {"offset": 12, "size": 4, "name": "captured_le32"},
+    {"offset": 16, "size": 4, "name": "sent_le32"},
+    {"offset": 20, "size": 4, "name": "dropped_le32"},
+    {"offset": 24, "size": 4, "name": "replayed_le32"},
+    {"offset": 28, "size": 4, "name": "next_sequence_le32"}
+  ],
+  "firmware_limits": {"queue_events": 128, "replay_history_events": 128},
+  "collection_scope": "active bonded BLE host, while subscribed and explicitly started",
+  "offline_replay": false
+}

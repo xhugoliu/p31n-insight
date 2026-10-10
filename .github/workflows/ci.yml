@@ -1,0 +1,24 @@
+name: macOS build and tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  validate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test packet parsing, SQLite, geometry and hardware fixtures
+        run: ./scripts/test.sh
+      - name: Package P31n Insight
+        run: ./scripts/package_app.sh
+      - name: Build and self-test Telemetry Probe
+        run: ./Tools/TelemetryProbe/build.sh
+      - name: Archive applications
+        run: |
+          ditto -c -k --sequesterRsrc --keepParent "dist/P31n Insight.app" dist/P31n-Insight.zip
+          ditto -c -k --sequesterRsrc --keepParent "dist/P31n Telemetry Probe.app" dist/P31n-Telemetry-Probe.zip
+      - uses: actions/upload-artifact@v6
+        with:
+          name: P31n-macOS-applications
+          path: dist/*.zip

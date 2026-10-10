@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-10",
+  "timezone": "Asia/Shanghai",
+  "connection": "BLE, USB unplugged, ZMK Studio exited",
+  "tests": [
+    {
+      "name": "A 20 presses",
+      "down": 20,
+      "up": 20,
+      "held_ms": 2258,
+      "passed": true
+    },
+    {
+      "name": "B+N 20 combos",
+      "B_down": 20,
+      "B_up": 20,
+      "N_down": 20,
+      "N_up": 20,
+      "passed": true
+    },
+    {
+      "name": "Q tap and hold",
+      "tap_ms": 102,
+      "hold_ms": 2833,
+      "passed": true
+    },
+    {
+      "name": "power cycle and reconnect",
+      "down": 5,
+      "up": 5,
+      "boot_id_changed": true,
+      "automatically_reconnected": true,
+      "passed": true
+    }
+  ],
+  "controlled_test_packet_loss": 0,
+  "controlled_test_pairing_anomalies": 0,
+  "controlled_test_firmware_dropped": 0,
+  "pending": [
+    "battery impact",
+    "long-running collection",
+    "macOS sleep/wake",
+    "Bluetooth profile switching"
+  ],
+  "fixture_policy": "Only prescribed test sessions; runtime identifiers replaced and device times made relative. Ordinary typing captures stay local."
+}
